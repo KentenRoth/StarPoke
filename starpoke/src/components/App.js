@@ -10,7 +10,7 @@ class App extends Component {
         this.state = {
             checked: true,
             title: "Star Wars",
-            term: "Darth Vader",
+            term: "",
             starWarsData: [],
             pokemonData: []
         };
@@ -19,9 +19,9 @@ class App extends Component {
     flipCheckbox = () => {
         this.setState({ checked: !this.state.checked });
         if (this.state.title === "Star Wars") {
-            this.setState({ title: "Pokemon", term: "Squirtle" });
+            this.setState({ title: "Pokemon" });
         } else {
-            this.setState({ title: "Star Wars", term: "Darth Vader" });
+            this.setState({ title: "Star Wars" });
         }
     };
 
