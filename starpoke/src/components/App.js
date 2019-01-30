@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import starwars from "../apis/starwars";
 import pokemon from "../apis/pokemon";
 import Header from "./Header";
+import SearchBar from "./SearchBar";
 
 class App extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class App extends Component {
         this.state = {
             checked: true,
             title: "Star Wars",
-            term: "",
+            responseResults: [],
             starWarsData: [],
             pokemonData: []
         };
@@ -22,6 +23,20 @@ class App extends Component {
             this.setState({ title: "Pokemon" });
         } else {
             this.setState({ title: "Star Wars" });
+        }
+    };
+
+    onSearchSubmit = async term => {
+        if (this.state.checked === true) {
+            const response = await starwars.get("/people/", {
+                params: {
+                    search: term
+                }
+            });
+            this.setState({ responseResults: response.data.results });
+        } else {
+            const response = await pokemon.get(`/pokemon/${term}`);
+            this.setState({ responseResults: response.data.results });
         }
     };
 
@@ -37,32 +52,39 @@ class App extends Component {
     }
 
     render() {
-        if (this.state.checked === true) {
-            return (
-                <div>
-                    <Header title={this.state.title} />
-                    <input
-                        type="checkbox"
-                        onChange={this.flipCheckbox}
-                        defaultChecked={this.state.checked}
-                    />
-                    <p>StarWars!</p>
-                </div>
-            );
-        } else {
-            return (
-                <div>
-                    <Header title={this.state.title} />
-                    <input
-                        type="checkbox"
-                        onChange={this.flipCheckbox}
-                        defaultChecked={this.state.checked}
-                    />
-                    <p>Pokemon</p>
-                </div>
-            );
-        }
+        return (
+            <div>
+                <Header title={this.state.title} />
+                <SearchBar onSubmit={this.onSearchSubmit} />
+            </div>
+        );
     }
 }
 
 export default App;
+
+// if (this.state.checked === true) {
+//     return (
+//         <div>
+//             <Header title={this.state.title} />
+//             <input
+//                 type="checkbox"
+//                 onChange={this.flipCheckbox}
+//                 defaultChecked={this.state.checked}
+//             />
+//             <p>StarWars!</p>
+//         </div>
+//     );
+// } else {
+//     return (
+//         <div>
+//             <Header title={this.state.title} />
+//             <input
+//                 type="checkbox"
+//                 onChange={this.flipCheckbox}
+//                 defaultChecked={this.state.checked}
+//             />
+//             <p>Pokemon</p>
+//         </div>
+//     );
+// }
