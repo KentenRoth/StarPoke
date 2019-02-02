@@ -1,3 +1,17 @@
 .header {
-    text-align: center;
+    background: linear-gradient(to bottom right, black, 85%, red);
+    height: 250px;
+}
+.headerBox {
+    align-items: center;
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    margin: auto;
+    width: 250px;
+}
+
+.headerH1 {
+    color: white;
+    font-size: 100px;
 }
