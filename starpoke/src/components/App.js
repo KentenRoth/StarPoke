@@ -3,14 +3,16 @@ import starwars from "../apis/starwars";
 import pokemon from "../apis/pokemon";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
+import Checkbox from "./Checkbox";
 
 class App extends Component {
     constructor(props) {
         super(props);
 
+        this.flipCheckbox = this.flipCheckbox.bind(this);
+
         this.state = {
             checked: true,
-            title: "Star Wars",
             responseResults: [],
             starWarsData: [],
             pokemonData: []
@@ -18,12 +20,7 @@ class App extends Component {
     }
 
     flipCheckbox = () => {
-        this.setState({ checked: !this.state.checked });
-        if (this.state.title === "Star Wars") {
-            this.setState({ title: "Pokemon" });
-        } else {
-            this.setState({ title: "Star Wars" });
-        }
+        return this.setState({ checked: !this.state.checked });
     };
 
     onSearchSubmit = async term => {
@@ -35,8 +32,13 @@ class App extends Component {
             });
             this.setState({ responseResults: response.data.results });
         } else {
-            const response = await pokemon.get(`/pokemon/${term}`);
-            this.setState({ responseResults: response.data.results });
+            const response = await pokemon.get(`/pokemon/${term}`, {
+                params: {
+                    limit: 10
+                }
+            });
+            this.setState({ responseResults: response.data });
+            console.log(response.data);
         }
     };
 
@@ -54,37 +56,15 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header title={this.state.title} />
+                <Header />
                 <SearchBar onSubmit={this.onSearchSubmit} />
+                <Checkbox
+                    isChecked={this.state.checked}
+                    action={this.flipCheckbox}
+                />
             </div>
         );
     }
 }
 
 export default App;
-
-// if (this.state.checked === true) {
-//     return (
-//         <div>
-//             <Header title={this.state.title} />
-//             <input
-//                 type="checkbox"
-//                 onChange={this.flipCheckbox}
-//                 defaultChecked={this.state.checked}
-//             />
-//             <p>StarWars!</p>
-//         </div>
-//     );
-// } else {
-//     return (
-//         <div>
-//             <Header title={this.state.title} />
-//             <input
-//                 type="checkbox"
-//                 onChange={this.flipCheckbox}
-//                 defaultChecked={this.state.checked}
-//             />
-//             <p>Pokemon</p>
-//         </div>
-//     );
-// }
