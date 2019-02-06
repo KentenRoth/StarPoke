@@ -4,6 +4,8 @@ import pokemon from "../apis/pokemon";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import Checkbox from "./Checkbox";
+import StarCardList from "./starwars/StarCardList";
+import PokeCardList from "./pokemon/PokeCardList";
 
 class App extends Component {
     constructor(props) {
@@ -54,16 +56,31 @@ class App extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <Header />
-                <SearchBar onSubmit={this.onSearchSubmit} />
-                <Checkbox
-                    isChecked={this.state.checked}
-                    action={this.flipCheckbox}
-                />
-            </div>
-        );
+        if (this.state.checked === true) {
+            return (
+                <div>
+                    <Header />
+                    <SearchBar onSubmit={this.onSearchSubmit} />
+                    <Checkbox
+                        isChecked={this.state.checked}
+                        action={this.flipCheckbox}
+                    />
+                    <StarCardList />
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <Header />
+                    <SearchBar onSubmit={this.onSearchSubmit} />
+                    <Checkbox
+                        isChecked={this.state.checked}
+                        action={this.flipCheckbox}
+                    />
+                    <PokeCardList />
+                </div>
+            );
+        }
     }
 }
 
