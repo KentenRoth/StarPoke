@@ -18,13 +18,16 @@ class SearchBar extends Component {
                     <div>
                         <form onSubmit={this.onFormSubmit} className="form">
                             <input
+                                className="formSearchBar"
                                 type="text"
                                 value={this.state.term}
                                 onChange={e =>
                                     this.setState({ term: e.target.value })
                                 }
                             />
-                            <button className="searchButton">Search</button>
+                            <div>
+                                <button className="searchButton">Search</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -4,8 +4,8 @@ import pokemon from "../apis/pokemon";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import Checkbox from "./Checkbox";
-import StarCardList from "./StarWars/StarCardList";
-import PokeCardList from "./Pokemon/PokeCardList";
+import StarCardList from "./starwars/StarCardList";
+import PokeCardList from "./pokemon/PokeCardList";
 
 class App extends Component {
     constructor(props) {
