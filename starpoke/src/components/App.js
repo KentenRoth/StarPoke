@@ -59,11 +59,11 @@ class App extends Component {
             return (
                 <div>
                     <Header />
-                    <SearchBar onSubmit={this.onSearchSubmit} />
                     <Checkbox
                         isChecked={this.state.checked}
                         action={this.flipCheckbox}
                     />
+                    <SearchBar onSubmit={this.onSearchSubmit} />
                     <StarCardList
                         starWarsData={this.state.starWarsData}
                         responseResults={this.state.responseResults}
@@ -74,11 +74,11 @@ class App extends Component {
             return (
                 <div>
                     <Header />
-                    <SearchBar onSubmit={this.onSearchSubmit} />
                     <Checkbox
                         isChecked={this.state.checked}
                         action={this.flipCheckbox}
                     />
+                    <SearchBar onSubmit={this.onSearchSubmit} />
                     <PokeCardList
                         pokemonData={this.state.pokemonData}
                         responseResults={this.state.responseResults}
