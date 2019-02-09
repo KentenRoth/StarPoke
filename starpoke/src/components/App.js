@@ -4,8 +4,8 @@ import pokemon from "../apis/pokemon";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import Checkbox from "./Checkbox";
-import StarCardList from "./starwars/StarCardList";
-import PokeCardList from "./pokemon/PokeCardList";
+import StarCardList from "./StarWars/StarCardList";
+import PokeCardList from "./Pokemon/PokeCardList";
 
 class App extends Component {
     constructor(props) {
@@ -40,7 +40,6 @@ class App extends Component {
                 }
             });
             this.setState({ responseResults: response.data });
-            console.log(response.data);
         }
     };
 
@@ -65,7 +64,10 @@ class App extends Component {
                         isChecked={this.state.checked}
                         action={this.flipCheckbox}
                     />
-                    <StarCardList />
+                    <StarCardList
+                        starWarsData={this.state.starWarsData}
+                        responseResults={this.state.responseResults}
+                    />
                 </div>
             );
         } else {
@@ -77,7 +79,10 @@ class App extends Component {
                         isChecked={this.state.checked}
                         action={this.flipCheckbox}
                     />
-                    <PokeCardList />
+                    <PokeCardList
+                        pokemonData={this.state.pokemonData}
+                        responseResults={this.state.responseResults}
+                    />
                 </div>
             );
         }

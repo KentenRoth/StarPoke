@@ -1,7 +1,12 @@
 import React from "react";
 
-const Card = () => {
-    return <div>Card</div>;
+const Card = props => {
+    return (
+        <div>
+            {props.baseData}
+            {props.starWars}
+        </div>
+    );
 };
 
 export default Card;
