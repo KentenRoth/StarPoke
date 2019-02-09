@@ -22,7 +22,10 @@ class App extends Component {
     }
 
     flipCheckbox = () => {
-        return this.setState({ checked: !this.state.checked });
+        return this.setState({
+            checked: !this.state.checked,
+            responseResults: []
+        });
     };
 
     onSearchSubmit = async term => {
