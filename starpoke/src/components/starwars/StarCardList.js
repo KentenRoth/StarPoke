@@ -11,9 +11,9 @@ const StarCardList = props => {
     });
 
     if (props.responseResults.length === 0) {
-        return <div>{baseData}</div>;
+        return <div className="container">{baseData}</div>;
     } else {
-        return <div>{searchResults}</div>;
+        return <div className="container">{searchResults}</div>;
     }
 };
 
