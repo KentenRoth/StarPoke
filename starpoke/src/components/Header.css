@@ -1,5 +1,10 @@
 .header {
-    background: linear-gradient(to bottom right, black, 75%, red);
+    background: linear-gradient(
+        to bottom right,
+        rgb(30, 30, 30),
+        75%,
+        rgb(160, 0, 0)
+    );
     height: 250px;
 }
 .headerBox {

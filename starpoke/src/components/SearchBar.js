@@ -19,6 +19,7 @@ class SearchBar extends Component {
                         <form onSubmit={this.onFormSubmit} className="form">
                             <input
                                 className="formSearchBar"
+                                placeholder="Search for your favorite Character"
                                 type="text"
                                 value={this.state.term}
                                 onChange={e =>

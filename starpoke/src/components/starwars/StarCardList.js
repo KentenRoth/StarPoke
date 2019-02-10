@@ -13,17 +13,17 @@ const StarCardList = props => {
 
     if (props.responseResults.length === 0) {
         return (
-            <div className="cardList">
+            <div className="starWarsCardList">
                 <div className="container">
-                    <div className="cardListItems">{baseData}</div>
+                    <div className="starWarsCardListItems">{baseData}</div>
                 </div>
             </div>
         );
     } else {
         return (
-            <div className="cardList">
+            <div className="starWarsCardList">
                 <div className="container">
-                    <div className="cardListItems">{searchResults}</div>
+                    <div className="starWarsCardListItems">{searchResults}</div>
                 </div>
             </div>
         );

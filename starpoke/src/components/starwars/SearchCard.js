@@ -4,10 +4,9 @@ import "./Card.css";
 const BaseCard = props => {
     const { name, height, mass, hair_color, eye_color } = props.starWars;
     return (
-        <div className="card">
-            <div className="cardName">
-                {name}
-                <br />
+        <div className="starWarsCard">
+            <h3 className="starWarsCardHeader">{name}</h3>
+            <div className="starWarsCardContent">
                 Height: {height} cm
                 <br />
                 Weight: {mass} kg
