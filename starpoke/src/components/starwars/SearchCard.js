@@ -1,8 +1,8 @@
 import React from "react";
 import "./Card.css";
 
-const Card = props => {
-    const { name, height, mass, hair_color, eye_color } = props.baseData;
+const BaseCard = props => {
+    const { name, height, mass, hair_color, eye_color } = props.starWars;
     return (
         <div className="card">
             <div className="cardName">
@@ -15,10 +15,9 @@ const Card = props => {
                 Eye Color: {eye_color}
                 <br />
                 Hair Color: {hair_color}
-                {props.starWars}
             </div>
         </div>
     );
 };
 
-export default Card;
+export default BaseCard;
