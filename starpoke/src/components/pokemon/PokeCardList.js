@@ -3,10 +3,6 @@ import SearchCard from "./SearchCard";
 import BaseCard from "./BaseCard";
 
 const PokeCardList = props => {
-    const searchResults = props.responseResults.map(poke => {
-        return <SearchCard key={poke.name} poke={poke} />;
-    });
-
     const baseData = props.pokemonData.map(baseData => {
         return <BaseCard key={baseData.name} baseData={baseData} />;
     });
@@ -20,7 +16,9 @@ const PokeCardList = props => {
     } else {
         return (
             <div className="container">
-                <div>{searchResults}</div>
+                <div>
+                    <SearchCard key={props.name} poke={props.responseResults} />
+                </div>
             </div>
         );
     }
