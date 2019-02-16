@@ -9,14 +9,16 @@ const PokeCardList = props => {
 
     if (props.responseResults.length === 0) {
         return (
-            <div className="container">
-                <div>{baseData}</div>
+            <div className="pokemonCardList">
+                <div className="container">
+                    <div className="pokemonCardListItems">{baseData}</div>
+                </div>
             </div>
         );
     } else {
         return (
-            <div className="container">
-                <div>
+            <div className="pokemonCardList">
+                <div className="container">
                     <SearchCard key={props.name} poke={props.responseResults} />
                 </div>
             </div>

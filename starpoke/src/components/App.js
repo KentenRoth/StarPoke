@@ -37,12 +37,16 @@ class App extends Component {
             });
             this.setState({ responseResults: response.data.results });
         } else {
-            const response = await pokemon.get(`/pokemon/${term}`, {
-                params: {
-                    limit: 10
-                }
-            });
-            this.setState({ responseResults: response.data });
+            if (term === "") {
+                this.setState({ responseResults: [] });
+            } else {
+                const response = await pokemon.get(`/pokemon/${term}`, {
+                    params: {
+                        limit: 20
+                    }
+                });
+                this.setState({ responseResults: response.data });
+            }
         }
     };
 
@@ -51,7 +55,7 @@ class App extends Component {
         this.setState({ starWarsData: starWarsResponse.data.results });
         const pokemonResponse = await pokemon.get("/pokemon/", {
             params: {
-                limit: 10
+                limit: 20
             }
         });
         this.setState({ pokemonData: pokemonResponse.data.results });
