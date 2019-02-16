@@ -1,21 +1,37 @@
 import React from "react";
+import "./SearchCard.css";
 
 const SearchCard = props => {
     return (
-        <div>
-            <img src={props.poke.sprites.front_shiny} />
-            <br />
-            Name: {props.poke.name}
-            <br />
-            Base Experience: {props.poke.base_experience}
-            <br />
-            Abilities
-            <br />
-            {props.poke.abilities[0].ability.name}
-            <br />
-            {props.poke.abilities[1].ability.name}
-            <br />
-            <img src={props.poke.sprites.back_shiny} />
+        <div className="cardBackground">
+            <div className="searchCard">
+                <div className="searchCardImage">
+                    <img
+                        src={props.poke.sprites.front_shiny}
+                        alt={props.poke.name}
+                    />
+                </div>
+                <div className="searchCardName">{props.poke.name}</div>
+                <div className="searchCardBaseExperienceTitle">
+                    Base Experience:
+                </div>
+                <div className="searchCardBaseExperience">
+                    {props.poke.base_experience}
+                </div>
+
+                <div className="searchCardAbilitiesTitle">Abilities:</div>
+                <div className="searchCardAbilities">
+                    {props.poke.abilities[0].ability.name}
+                    <br />
+                    {props.poke.abilities[1].ability.name}
+                </div>
+                <div className="searchCardImage">
+                    <img
+                        src={props.poke.sprites.back_shiny}
+                        alt={props.poke.name}
+                    />
+                </div>
+            </div>
         </div>
     );
 };
